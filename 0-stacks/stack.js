@@ -1,4 +1,7 @@
+const e = require("express");
+
 class Stack {
+
   #stack = [];
 
   size() {
@@ -8,14 +11,14 @@ class Stack {
   isEmpty(){
     return this.size() === 0;
   }
-
+//remove the last element of the stack
   pop() {
     if (this.isEmpty()) {
       return null;
     }
     return this.#stack.pop();
   }
-  
+  // This method returns the top element of the stack without removing it
   peek() {
     if (this.isEmpty()) {
       return null;
@@ -27,41 +30,50 @@ class Stack {
     this.#stack.push(i);
   }
 
-  
+  showAll(){
+    return [...this.#stack];
+  }
 }
 
 // Example usage:
-const stack = new Stack();
+// const stack = new Stack();
+// console.log(stack)
 
-stack.push(10);
-stack.push(20);
-stack.push(30);
+// stack.push(10);
+// stack.push(20);
+// stack.push(30);
 
-console.log(stack.peek()); // 30
-console.log(stack.pop());  // 30
-console.log(stack.size()); // 2
+// console.log(stack.peek())
+
+// console.log(stack.peek()); // 30
+// console.log(stack.pop());  // 30
+// console.log(stack.size()); // 2
 
 
-const editorStack = new Stack();
+// const editorStack = new Stack();
 
-const addWord = (word) =>{
-  editorStack.push(word);
-}
+// const addWord = (word) =>{
+//   editorStack.push(word);
+// }
 
-const undo = () => {
-  return editorStack.pop();
-}
+// const undo = () => {
+//   return editorStack.pop();
+// }
 
-// Example usage:
-addWord("Hello");
-console.log(editorStack.peek()); // "Hello"
-addWord("World");
-console.log(editorStack.peek()); // "World"
-console.log(editorStack.size()); // 2
-console.log(undo());             // "World"
-console.log(editorStack.size()); // 1
-console.log(undo());             // "Hello"
-console.log(editorStack.size()); // 0
+// // Example usage:
+// addWord("Hello");
+
+
+// console.log(editorStack.peek()); // "Hello"
+// addWord("World");
+// console.log(editorStack.peek()); // "World"
+// console.log(editorStack.size()); // 2
+// console.log(editorStack.showAll()); // ["Hello", "World"] 
+// console.log(undo());             // "World"
+// console.log(editorStack.size()); // 1
+// console.log(editorStack.peek()); // World
+// console.log(undo());             // "Hello"
+// console.log(editorStack.size()); // 0
 
 
 const pagesStack = new Stack();
